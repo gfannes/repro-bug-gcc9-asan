@@ -1,15 +1,11 @@
-doctest/doctest/doctest.h:
-	git clone https://github.com/onqtam/doctest
-test.o: test.cpp doctest/doctest/doctest.h
-	g++ -c test.cpp -o test.o -I doctest/doctest -fsanitize=address -O3
+test.o: test.cpp
+	g++ -c test.cpp -o test.o -fsanitize=address -O3 -save-temps
 test: test.o
 	g++ test.o -o test -lasan
 
-.PHONY: clean proper run
+.PHONY: clean run
 clean:
-	rm -f *.o
+	rm -f *.o *.ii *.s
 	rm -f test
-proper: clean
-	rm -rf doctest
 run: test
 	./test

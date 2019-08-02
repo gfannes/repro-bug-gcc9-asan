@@ -12,7 +12,7 @@ I tried to boil things down to the bare minimum:
 
 When testing against GCC 8.3.0, ASAN does not complain.
 
-# System details
+# Details
 
 * `gcc --version`
 
@@ -24,6 +24,12 @@ When testing against GCC 8.3.0, ASAN does not complain.
 * `uname -a`
 
     Linux core-design 5.1.16-1-MANJARO #1 SMP PREEMPT Thu Jul 4 20:32:22 UTC 2019 x86_64 GNU/Linux
+
+* Compilation statement
+
+    g++ -c test.cpp -o test.o -I doctest/doctest -fsanitize=address -O3 -save-temps
+
+* Preprocessed file can be found [here](test.ii).
 
 # Running the test program
 
