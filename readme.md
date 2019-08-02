@@ -10,6 +10,8 @@ I tried to boil things down to the bare minimum:
 * The `Struct s;` should come before the `DOCTEST_SUBCASE()`s
 * The initialization of the `data` member should have at least 3 items
 
+When testing against GCC 8.3.0, ASAN does not complain.
+
 # System details
 
 * `gcc --version`
